@@ -6,7 +6,7 @@ services:
     environment:
       - EULA=TRUE
       - SERVER_PORT=19132
-      - DIFFICULTY=peacful
+      - DIFFICULTY=peaceful
       - 'PUID=${PUID}'
       - 'PGID=${PGID}'
       - 'TZ=${TZ}'

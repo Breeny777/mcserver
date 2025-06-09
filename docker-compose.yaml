@@ -34,5 +34,5 @@ services:
         - '${HDDSTORAGE1}:/crafty/app/config'
         - '${HDDSTORAGE1}:/crafty/import'
 
-  volumes:
-        mc:
+  # volumes:
+  #       mc:

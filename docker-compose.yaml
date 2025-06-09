@@ -1,19 +1,19 @@
 services:
-  minecraft-bedrock-server:
-    image: itzg/minecraft-bedrock-server
-    container_name: mc
-    environment:
-      - 'EULA=TRUE'
-      - 'SERVER_PORT=19132'
-      - 'DIFFICULTY=peaceful'
-      - 'PUID=${PUID}'
-      - 'PGID=${PGID}'
-      - 'TZ=${TZ}'
-      # - LEVEL_SEED= optional seed for generating your world
-    ports:
-      - "19132:19132/udp"
-    volumes:
-      - '${HDDSTORAGE1}:/data'
+  # minecraft-bedrock-server:
+  #   image: itzg/minecraft-bedrock-server
+  #   container_name: mc
+  #   environment:
+  #     - 'EULA=TRUE'
+  #     - 'SERVER_PORT=19132'
+  #     - 'DIFFICULTY=peaceful'
+  #     - 'PUID=${PUID}'
+  #     - 'PGID=${PGID}'
+  #     - 'TZ=${TZ}'
+  #     # - LEVEL_SEED= optional seed for generating your world
+  #   ports:
+  #     - "19132:19132/udp"
+  #   volumes:
+  #     - '${HDDSTORAGE1}:/data'
   crafty:
     container_name: crafty_container
     image: registry.gitlab.com/crafty-controller/crafty-4:latest
@@ -25,7 +25,7 @@ services:
     ports:
         - "8443:8443" # HTTPS
         - "8123:8123" # DYNMAP
-        # - "19132:19132/udp" # BEDROCK
+        - "19132:19132/udp" # BEDROCK
         - "25500-25600:25500-25600" # MC SERV PORT RANGE
     volumes:
         - '${HDDSTORAGE2}:/crafty/backups'

@@ -33,6 +33,6 @@ services:
         - '${HDDSTORAGE1}:/crafty/servers'
         - '${HDDSTORAGE1}:/crafty/app/config'
         - '${HDDSTORAGE1}:/crafty/import'
-        
+
   volumes:
-  mc:
+    mc:

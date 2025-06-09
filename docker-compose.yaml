@@ -14,10 +14,6 @@ services:
       - "19132:19132/udp"
     volumes:
       - '${HDDSTORAGE1}:/data'
-
-volumes:
-  mc:
-
   crafty:
     container_name: crafty_container
     image: registry.gitlab.com/crafty-controller/crafty-4:latest
@@ -37,3 +33,6 @@ volumes:
         - '${HDDSTORAGE1}:/crafty/servers'
         - '${HDDSTORAGE1}:/crafty/app/config'
         - '${HDDSTORAGE1}:/crafty/import'
+        
+  volumes:
+  mc:

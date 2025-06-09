@@ -1,12 +1,11 @@
-version: '3.3'
 services:
   minecraft-bedrock-server:
     image: itzg/minecraft-bedrock-server
     container_name: mc
     environment:
-      - EULA=TRUE
-      - SERVER_PORT=19132
-      - DIFFICULTY=peaceful
+      - 'EULA=TRUE'
+      - 'SERVER_PORT=19132'
+      - 'DIFFICULTY=peaceful'
       - 'PUID=${PUID}'
       - 'PGID=${PGID}'
       - 'TZ=${TZ}'

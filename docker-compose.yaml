@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+  minecraft-bedrock-server:
+    image: itzg/minecraft-bedrock-server
+    container_name: mc
+    environment:
+      - EULA=TRUE
+      - SERVER_PORT=19132
+      - DIFFICULTY=peacful
+      - 'PUID=${PUID}'
+      - 'PGID=${PGID}'
+      - 'TZ=${TZ}'
+      # - LEVEL_SEED= optional seed for generating your world
+    ports:
+      - "19132:19132/udp"
+    volumes:
+      - '${HDDSTORAGE1}:/data'
+
+volumes:
+  mc:

@@ -18,23 +18,22 @@ services:
 volumes:
   mc:
 
-  services:
-    crafty:
-      container_name: crafty_container
-      image: registry.gitlab.com/crafty-controller/crafty-4:latest
-      restart: always
-      environment:
-          - 'PUID=${PUID}'
-          - 'PGID=${PGID}'
-          - 'TZ=${TZ}'
-      ports:
-          - "8443:8443" # HTTPS
-          - "8123:8123" # DYNMAP
-          - "19132:19132/udp" # BEDROCK
-          - "25500-25600:25500-25600" # MC SERV PORT RANGE
-      volumes:
-          - '${HDDSTORAGE2}:/crafty/backups'
-          - '${HDDSTORAGE1}:/crafty/logs'
-          - '${HDDSTORAGE1}:/crafty/servers'
-          - '${HDDSTORAGE1}:/crafty/app/config'
-          - '${HDDSTORAGE1}:/crafty/import'
+  crafty:
+    container_name: crafty_container
+    image: registry.gitlab.com/crafty-controller/crafty-4:latest
+    restart: always
+    environment:
+        - 'PUID=${PUID}'
+        - 'PGID=${PGID}'
+        - 'TZ=${TZ}'
+    ports:
+        - "8443:8443" # HTTPS
+        - "8123:8123" # DYNMAP
+        - "19132:19132/udp" # BEDROCK
+        - "25500-25600:25500-25600" # MC SERV PORT RANGE
+    volumes:
+        - '${HDDSTORAGE2}:/crafty/backups'
+        - '${HDDSTORAGE1}:/crafty/logs'
+        - '${HDDSTORAGE1}:/crafty/servers'
+        - '${HDDSTORAGE1}:/crafty/app/config'
+        - '${HDDSTORAGE1}:/crafty/import'

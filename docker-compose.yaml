@@ -14,6 +14,8 @@ services:
       - "19132:19132/udp"
     volumes:
       - '${HDDSTORAGE1}:/data'
+    stdin_open: true
+    tty: true
 #   crafty:
 #     container_name: crafty_container
 #     image: registry.gitlab.com/crafty-controller/crafty-4:latest

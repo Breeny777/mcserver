@@ -1,24 +1,40 @@
 services:
-  web:
-    image: itzg/rcon
+  minecraft-bedrock-server:
+    image: itzg/minecraft-bedrock-server
+    container_name: mc
     environment:
-      RWA_USERNAME: admin
-      RWA_PASSWORD: admin
-      RWA_ADMIN: "TRUE"
-      # is referring to the service name 'mc' declared below
-      RWA_RCON_HOST: mc
-      # needs to match the password configured for the container, see RCON_PASSWORD below
-      RWA_RCON_PASSWORD: "MinecraftYA"
+      - 'EULA=TRUE'
+      - 'SERVER_PORT=19132'
+      - 'DIFFICULTY=peaceful'
+      - 'PUID=${PUID}'
+      - 'PGID=${PGID}'
+      - 'TZ=${TZ}'
+      # - LEVEL_SEED= optional seed for generating your world
     ports:
-      - "4326:4326"
-      - "4327:4327"
-  mc:
-    image: itzg/minecraft-server
-    ports:
-      - "25565:25565"
-      # DO NOT expose rcon port 25575 here
-    environment:
-      EULA: "TRUE"
-      RCON_PASSWORD: "MinecraftYA"
-    # volumes:
-    #   - '/usr/local/games/minecraft_server_dc/bedrock:/data'
+      - "19132:19132/udp"
+    volumes:
+      - '${HDDSTORAGE1}:/data'
+    stdin_open: true
+    tty: true
+#   crafty:
+#     container_name: crafty_container
+#     image: registry.gitlab.com/crafty-controller/crafty-4:latest
+#     restart: always
+#     environment:
+#         - 'PUID=${PUID}'
+#         - 'PGID=${PGID}'
+#         - 'TZ=${TZ}'
+#     ports:
+#         - "8443:8443" # HTTPS
+#         - "8123:8123" # DYNMAP
+#         - "19132:19132/udp" # BEDROCK
+#         - "25500-25600:25500-25600" # MC SERV PORT RANGE
+#     volumes:
+#         - '${HDDSTORAGE2}:/crafty/backups'
+#         - '${HDDSTORAGE2}:/crafty/logs'
+#         - '${HDDSTORAGE2}:/crafty/servers'
+#         - '${HDDSTORAGE2}:/crafty/app/config'
+#         - '${HDDSTORAGE2}:/crafty/import'
+
+  # volumes:
+  #       mc:

@@ -20,5 +20,5 @@ services:
     environment:
       EULA: "TRUE"
       RCON_PASSWORD: "MinecraftYA"
-    volumes:
-      - '/usr/local/games/minecraft_server_dc/bedrock:/data'
+    # volumes:
+    #   - '/usr/local/games/minecraft_server_dc/bedrock:/data'

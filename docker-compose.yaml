@@ -9,7 +9,7 @@ services:
       - 'PUID=${PUID}'
       - 'PGID=${PGID}'
       - 'TZ=${TZ}'
-      - 'RCON_PASSWORD="MineCraftya"''
+      - 'RCON_PASSWORD="MineCraftya"'
       # - LEVEL_SEED= optional seed for generating your world
     ports:
       - "19132:19132/udp"

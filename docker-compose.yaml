@@ -24,7 +24,7 @@ services:
       - 'RCON_PASSWORD="MineCraftya"'
       # - LEVEL_SEED= optional seed for generating your world
     ports:
-      - "19132:19132/udp"
+      # - "19132:19132/udp"
       - "25565:25565"
     volumes:
       - '${HDDSTORAGE1}:/data'
